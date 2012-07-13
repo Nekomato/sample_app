@@ -32,6 +32,8 @@ describe "Static pages" do
 
   describe "About page" do
 
+    let(:base_title) { "Ruby on Rails Tutorial Sample App" }
+
     it "should have the h1 'About Us'" do
       visit '/static_pages/about'
       page.should have_selector('h1', :text => 'About Us')
@@ -41,6 +43,20 @@ describe "Static pages" do
       visit '/static_pages/about'
       page.should have_selector('title',
                     :text => "Ruby on Rails Tutorial Sample App | About Us")
+    end
+  end
+
+  describe "Contact page" do
+
+    it "should have the h1 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector('h1', :text => 'Contact')
+    end
+
+    it "should have the title 'Contact'" do
+      visit '/static_pages/contact'
+      page.should have_selector('title',
+                    :text => "Ruby on Rails Tutorial Sample App | Contact")
     end
   end
 end
